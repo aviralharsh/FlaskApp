@@ -5,7 +5,7 @@ from bson.json_util import dumps
 app = Flask(__name__)
 
 client = MongoClient("mongodb://127.0.0.1:27017") #host uri    
-db = client.cloudcontrol    #Select the database
+db = client.myDatabaseName    #Select the database
 
 @app.route('/', methods=['GET'])
 def index():
