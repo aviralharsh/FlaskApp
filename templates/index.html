@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Test Flask
+{% endblock %}
+
+{% block body %} 
+<div class="content" style="margin-left: 40px;">
+    <h1 style="text-align: center;">Add Master</h1>
+</div>
+<br><br>
+<br><br>
+<div class="content" style="margin-left: 40px;">
+    <form action="/add_to_db" method="POST">
+        Select Environment: 
+        <select name="selectEnv" id="env">
+            <option value="qa1">QA1</option>
+            <option value="qa2">QA2</option>
+            <option value="staging">Staging</option>
+        </select>
+        <br><br> 
+        Aap Name: <input type="text" name="appName" id="app-name">
+        <br><br>
+        Lower Env Healthcheck URL: <input type="text" name="healthCheck" id="health-check">
+        <br><br>
+        Version Path: <input type="text" name="version" id="version-path">
+        <br><br>
+        <input type="submit" value="Add Task" style="cursor:pointer; size:10px;">
+    </form>
+</div>
+
+<p>{{ value }}</p>
+
+{% endblock %}

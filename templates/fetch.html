@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Test Flask
+{% endblock %}
+
+{% block body %} 
+<div class="content" style="margin-left: 40px;">
+    <h1 style="text-align: center;">Search Master</h1>
+</div>
+<div class="content" style="margin-left: 40px;">
+    <br>
+    <form action="/fetch_db" method="POST">
+        Select Environment: 
+        <select name="selectEnv" id="env">
+            <option value="qa1">QA1</option>
+            <option value="qa2">QA2</option>
+            <option value="staging">Staging</option>
+        </select>
+        <br><br>
+        App Name: <input type="text" name="appName" id="app-name">
+        <br><br>
+        <input type="submit" value="Search" style="margin-left: 90px;">
+    </form>
+</div>
+
+<div class="content" style="margin-left: 100px;">
+    <table>
+        <tr>
+            <th>  App Name   </th>
+            <th>  Healthcheck URL   </th>
+            <th>  Version   </th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td> {{ result["appName"] }} </td>
+            <td> {{ result["healthCheck"] }} </td>
+            <td> {{ result["version"] }} </td>
+        </tr>
+       # {% endfor %}
+    </table>
+</div>
+
+<p>{{ value }}</p>
+{% endblock %}
